@@ -1,0 +1,72 @@
+{
+    "logo": {
+    	"source": "~/.config/fastfetch/explore-the-enchanting-green-anime-aesthetic2.jpg",
+    	"type": "kitty",
+    	"height": 10,
+    	"padding": {
+    		"top": 1
+    	}
+    },
+    "display": {
+        "separator": "- "
+    },
+    "modules": [
+	"break",
+	{
+            "type": "title",
+            "keyWidth": 10
+        },
+ 
+        
+        {
+            "type": "os",
+            "key": "\uef46 ",
+            "keyColor": "34",  // = color4
+        },
+        {
+            "type": "kernel",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "shell",
+            "key": " ",
+            "keyColor": "34", 
+        },
+        {
+            "type": "terminal",
+            "key": " ",
+            "keyColor": "34", 
+        },
+        {
+            "type": "wm",
+            "key": " ",
+            "keyColor": "34", 
+        },
+        {
+            "type": "cursor",
+            "key": " ",
+            "keyColor": "34", 
+        },
+        {
+            "type": "terminalfont",
+            "key": " ",
+            "keyColor": "34", 
+        },
+        {
+            "type": "uptime",
+            "key": " ",
+            "keyColor": "34", 
+        },
+        {
+            "type": "localip",
+            "key": "\udb86\udd82 ",
+	    "format": "{ipv4} ({ifname})"
+        },
+        "break",
+        
+
+        "break",
+        "break",
+    ]
+}

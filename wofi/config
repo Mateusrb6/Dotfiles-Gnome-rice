@@ -1,0 +1,12 @@
+[config]
+allow_images=true
+show=drun
+prompt=Search
+term=kitty
+print_command=true
+insensitive=true
+columns=1
+no_actions=true
+hide_scroll=true
+width=800
+height=475

@@ -1,0 +1,82 @@
+@import url("./.cache/wal/colors-waybar.css"); 
+
+/* === Global === */
+* {
+    all: unset;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    text-shadow: none;
+    background-color: transparent;
+}
+
+/* === Main Window === */
+window {
+    padding: 20px;
+    border-radius: 12px;
+
+    background:
+    radial-gradient(circle at top left,     alpha(@color1,0.35), transparent 70%),
+    radial-gradient(circle at top right,    alpha(@color1,0.35), transparent 70%),
+    radial-gradient(circle at bottom left,  alpha(@color1,0.35), transparent 70%),
+    radial-gradient(circle at bottom right, alpha(@color1,0.35), transparent 70%),
+    alpha(@background,0.85);
+}
+
+/* === Layout === */
+#outer-box {
+    border: none;
+}
+#inner-box {
+    margin: 2px;
+    padding: 5px;
+    border: none;
+}
+#scroll {
+    margin: 0px;
+    padding: 20px;
+    border: none;
+}
+
+/* === Input field === */
+#input {
+    margin: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    color: @foreground;
+    background-color: alpha(@background, 0.25);
+    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+}
+#input image {
+    color: @color1;
+    padding-right: 10px;
+}
+
+/* === Item list === */
+#entry {
+    border: none;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 12px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Normal text */
+#entry #text {
+    color: @foreground;
+}
+
+/* Highlight item */
+#entry:selected {
+    background-color: alpha(@color1, 0.2); /* warna highlight */
+    border: 1px solid @color1;
+    box-shadow: 0 0 8px alpha(@color1, 0.3);
+}
+#entry:selected #text {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Arrow icon */
+#entry arrow {
+    color: @color3;
+}
