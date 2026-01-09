@@ -16,8 +16,6 @@
             "type": "title",
             "keyWidth": 10
         },
- 
-        
         {
             "type": "os",
             "key": "\uef46 ",
@@ -63,10 +61,6 @@
             "key": "\udb86\udd82 ",
 	    "format": "{ipv4} ({ifname})"
         },
-        "break",
-        
-
-        "break",
-        "break",
+        "break"
     ]
 }
