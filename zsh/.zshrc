@@ -5,7 +5,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/home/mateus/.spicetify"
 
 # ==================================================
-# OH-MY-ZSH (SEM TEMA)
+# OH-MY-ZSH 
 # ==================================================
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="refined"
