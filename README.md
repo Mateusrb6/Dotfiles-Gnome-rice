@@ -94,20 +94,52 @@ Customizes the lockscreen background image or wallpaper.
   **Install on Fedora:**
   - Use curl to install.
 
-  ```
-  curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
+   ```
+          curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
   ```
   - After installing Spicetify and Marketplace, you can customize Spotify using themes and extensions from the Marketplace tab in Spotify's sidebar.
 
-- 🛠️ **LinuxToys**  
-  **What:** [LinuxToys](https://github.com/psygreg/linuxtoys) is a collection of user-friendly tools designed for Linux systems. It aims to make powerful Linux functionality accessible to all users through an intuitive interface..  
-  **Install on Fedora:** Check the project's GitHub. Typical methods:
+- 🍜 **Wofi**  
+  **What:** [Wofi](https://hg.sr.ht/~sircmpwn/wofi) is a lightweight application launcher for Wayland (wlroots compositors), similar to `rofi`/`dmenu`. Use it to run commands, launch desktop apps (`drun`), or display custom menus.
+  **Install on Fedora:**
+  - Install from Fedora repositories: 
+  ```
+          sudo dnf install wofi
+  ```
+  **Usage:**   Paste the .config/wofi into ~/.config/wofi. wofi-wallpaper-selector.sh calls wofi to show the thumbnail of available wallpapers — don’t forget to set the right path to your wallpaper directory.
+
+  > ⚠️ Wofi requires a Wayland compositor (e.g., Sway); it won't run on a pure X11 session without a Wayland compatibility layer.
+
+- 🎨 **pywal16**  
+  **What:** A small utility (fork/variant of `pywal`) that generates 16-color palettes from an image and applies them to your terminal, GTK themes and other supported apps to create a cohesive colour scheme. Useful for matching your desktop and apps to your wallpaper.
+  **Install on Fedora (examples):**
+  - Using pip: `pip install pywal16`  
+
+  **Usage:** The script wofi-wallpaper-selector use pywal16 to generate color-palletes based on the current wallpaper.
+
+- ⭐ **fastfetch**  
+  **What:** [fastfetch](https://github.com/fastfetch/fastfetch) is a fast, lightweight system information tool (similar to `neofetch`) that prints concise system details and an optional ASCII logo to the terminal. It's optimized for speed and low resource usage.
+  **Install on Fedora (examples):**
+    - Install from Fedora repositories if available: `sudo dnf install fastfetch`
+
+    **Usage:** 
+    1. Open .zshrc in a text editor like nano.
+    2. Add the following block at the end of the file:
+    ```
+    if [[ -o interactive && -z "$FASTFETCH_SHOWN" && -z "$SSH_CONNECTION" ]]; then
+    export FASTFETCH_SHOWN=1
+    fastfetch
+    fi
+    ```
+    3. Save the file and open a new terminal.
+- �🛠️ **LinuxToys**  
+  **What:** [LinuxToys](https://github.com/psygreg/linuxtoys) is a collection of user-friendly tools designed for Linux systems. It aims to make powerful Linux functionality accessible to all users through an intuitive interface.  
+  **Install on Fedora:** 
   
   - Automatic instalation: The simplest way to install LinuxToys is by using the automated installation script. Open your terminal and run:
      ```
          curl -fsSL https://linux.toys/install.sh | bash
      ``` 
- 
   - Copr: 
     ``` 
         sudo dnf copr enable psygreg/linuxtoys
@@ -117,7 +149,7 @@ Customizes the lockscreen background image or wallpaper.
  ### Scripts
 
 <details>
-<summary> 🎨 wofi-wallpaper-selector.sh </summary>
+<summary> 🖌️ wofi-wallpaper-selector.sh </summary>
 </details>
 
 
@@ -125,3 +157,14 @@ Customizes the lockscreen background image or wallpaper.
 
 
  ### Keyboard shortcuts
+
+| Name             | Command                                         | Shortcut    |
+| ---------------- | ----------------------------------------------- | ----------- |
+| File Manager     | `nautilus`                                      | `Super+F` |
+| Wallpaper Picker |  | `Alt+W`   |
+| Terminal         | `kitty`                                         | `Super+T` |
+| wofi             | `wofi`                                       f   | `Super+Space`|
+
+
+
+🚧🚧🚧 Under Construction 🚧🚧🚧

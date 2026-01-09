@@ -103,8 +103,9 @@ if [[ -n "$selected" ]]; then
         # 2. Gera paleta com pywal16
         wal -i "$original_path" -n -q -t --backend haishoku --saturate 0.4
 
-	#aplica tema no firefox
-	pywalfox update
+	    #aplica tema no firefox
+	    pywalfox update
+        
         # 3. ATUALIZAÇÃO DO SISTEMA (Novo: Força o GNOME a reler as cores)
         # Sem isso, as cores só mudam se você fizer logout
         touch "$HOME/.config/gtk-4.0/gtk.css"
