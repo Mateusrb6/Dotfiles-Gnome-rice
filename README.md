@@ -1,7 +1,7 @@
 # Fedora Gnome Rice
 
 <details>
-<summary>📸 Show Screenshot</summary>
+<summary>📸 Show Screenshots</summary>
 <table align="center">
   <tr>
     <td align="center">
@@ -163,7 +163,7 @@ Customizes the lockscreen background image or wallpaper.
 | File Manager     | `nautilus`                                      | `Super+F` |
 | Wallpaper Picker |  | `Alt+W`   |
 | Terminal         | `kitty`                                         | `Super+T` |
-| wofi             | `wofi`                                       f   | `Super+Space`|
+| wofi             | `wofi`                                          | `Super+Space`|
 
 
 
