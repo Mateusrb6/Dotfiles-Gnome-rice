@@ -22,4 +22,4 @@ The script automatically checks `~/Pictures/wallpapers` for wallpapers. Change i
 ### Usage
 You can set this widget to an alias on your shell, or add it to a module on waybar, your choice really.
 
-### This is my project fork of https://github.com/highonskooma/Wofi-Wallpaper-Picker ###
+### This is my personal fork of https://github.com/highonskooma/Wofi-Wallpaper-Picker ###
