@@ -10,11 +10,11 @@ CACHE_DIR="$HOME/.cache/wallpaper-selector"
 THUMBNAIL_WIDTH="250"
 THUMBNAIL_HEIGHT="141"
 
-# Diretório do próprio script
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ASSETS_DIR="$SCRIPT_DIR/assets"
-
+# Cria diretório de cache se não existir
 mkdir -p "$CACHE_DIR"
+
+# Evita erros caso a pasta de wallpapers esteja vazia
+shopt -s nullglob
 
 ############################
 # FUNÇÕES
@@ -23,8 +23,14 @@ mkdir -p "$CACHE_DIR"
 generate_thumbnail() {
     local input="$1"
     local output="$2"
-    # Adicionei -auto-orient para evitar fotos deitadas
-    magick "$input" -auto-orient \
+    
+    # Verifica se usa 'magick' (v7) ou 'convert' (v6)
+    local cmd="magick"
+    if ! command -v magick &> /dev/null; then
+        cmd="convert"
+    fi
+
+    "$cmd" "$input" -auto-orient \
         -thumbnail "${THUMBNAIL_WIDTH}x${THUMBNAIL_HEIGHT}^" \
         -gravity center \
         -extent "${THUMBNAIL_WIDTH}x${THUMBNAIL_HEIGHT}" \
@@ -32,26 +38,29 @@ generate_thumbnail() {
 }
 
 ############################
-# MENU WOFi
+# GERAÇÃO DO MENU
 ############################
 
 generate_menu() {
-    
-
     for img in "$WALLPAPER_DIR"/*.{jpg,jpeg,png}; do
         [[ -f "$img" ]] || continue
 
-        thumbnail="$CACHE_DIR/$(basename "${img%.*}").png"
+        # Pega o nome do arquivo sem extensão (ex: 'paisagem')
+        base_name=$(basename "${img%.*}")
+        thumbnail="$CACHE_DIR/$base_name.png"
 
+        # Gera thumbnail se não existir ou se a imagem original for mais nova
         if [[ ! -f "$thumbnail" ]] || [[ "$img" -nt "$thumbnail" ]]; then
             generate_thumbnail "$img" "$thumbnail"
         fi
 
-        echo -en "img:$thumbnail\x00info:$(basename "$img")\x1f$img\n"
+        # Envia para o Wofi: Ícone + Nome do arquivo
+        echo -en "img:$thumbnail\x00info:$base_name\n"
     done
 }
 
-selected=$(generate_menu | wofi --show dmenu \
+# Executa o Wofi e guarda o resultado bruto
+selected_raw=$(generate_menu | wofi --show dmenu \
     --cache-file /dev/null \
     --define "image-size=${THUMBNAIL_WIDTH}x${THUMBNAIL_HEIGHT}" \
     --columns 3 \
@@ -59,56 +68,60 @@ selected=$(generate_menu | wofi --show dmenu \
     --insensitive \
     --sort-order=default \
     --prompt "Select Wallpaper" \
-    --conf ~/.config/wofi/wallpaper.conf
-)
+    --conf ~/.config/wofi/wallpaper.conf)
 
 ############################
-# APLICA WALLPAPER E CORES
+# PROCESSAMENTO DA ESCOLHA
 ############################
 
-if [[ -n "$selected" ]]; then
+final_path=""
 
-    if [[ "$selected" == *"RANDOM"* ]]; then
-        original_path=$(find "$WALLPAPER_DIR" -type f \( \
-            -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \
-        \) | shuf -n 1)
-    else
-        # Lógica de limpeza ajustada para garantir leitura correta
-        clean_path="${selected#img:}"
-        
-        # Tenta pegar o caminho limpo após o caractere invisível do wofi
-        extracted_path=$(echo "$selected" | awk -F'\x1f' '{print $NF}')
-        
-        if [[ -f "$extracted_path" ]]; then
-            original_path="$extracted_path"
-        elif [[ "$clean_path" == "$CACHE_DIR"* ]]; then
-            base_name="$(basename "${clean_path%.*}")"
-            original_path=$(find "$WALLPAPER_DIR" -type f -iname "$base_name.*" | head -n 1)
-        else
-            original_path="$clean_path"
-        fi
+if [[ -n "$selected_raw" ]]; then
+    # 1. O Wofi retorna algo como: "img:/caminho/cache/foto.png"
+    # Removemos o prefixo "img:"
+    clean_selection="${selected_raw#img:}"
+    
+    # 2. Pegamos apenas o nome do arquivo da thumbnail (ex: 'foto.png')
+    thumb_filename=$(basename "$clean_selection")
+    
+    # 3. Removemos a extensão para ter apenas o nome base (ex: 'foto')
+    filename_no_ext="${thumb_filename%.*}"
+
+    # 4. Buscamos o arquivo original na pasta de wallpapers correspondente a esse nome
+    # Isso garante que pegamos o arquivo certo seja ele .jpg, .jpeg ou .png
+    final_path=$(find "$WALLPAPER_DIR" -type f -name "$filename_no_ext.*" | head -n 1)
+fi
+
+############################
+# APLICAÇÃO (GNOME + PYWAL)
+############################
+
+if [[ -n "$final_path" && -f "$final_path" ]]; then
+
+    echo "Aplicando wallpaper: $final_path"
+    uri="file://$final_path"
+
+    # 1. Define Wallpaper no GNOME
+    gsettings set org.gnome.desktop.background picture-uri "$uri"
+    gsettings set org.gnome.desktop.background picture-uri-dark "$uri"
+    gsettings set org.gnome.desktop.screensaver picture-uri "$uri"
+
+    # Limpa cache antigo do Pywal
+    rm -rf "$HOME/.cache/wal/schemes"
+
+    # 2. Gera cores com Pywal
+    wal -i "$final_path" -n -q -t --backend haishoku --saturate 0.4
+
+    # 3. Atualiza Firefox (Pywalfox)
+    if command -v pywalfox &> /dev/null; then
+        pywalfox update
     fi
 
-    if [[ -n "$original_path" && -f "$original_path" ]]; then
-        uri="file://$original_path"
+    # 4. Força atualização visual do sistema (Libadwaita/GTK4)
+    touch "$HOME/.config/gtk-4.0/gtk.css"
+    touch "$HOME/.config/gtk-3.0/gtk.css"
 
-        # 1. Aplica Wallpaper no GNOME
-        gsettings set org.gnome.desktop.background picture-uri "$uri"
-        gsettings set org.gnome.desktop.background picture-uri-dark "$uri"
-        gsettings set org.gnome.desktop.screensaver picture-uri "$uri"
-
-	# Limpeza de cache
-        rm -rf "$HOME/.cache/wal/schemes"
-
-        # 2. Gera paleta com pywal16
-        wal -i "$original_path" -n -q -t --backend haishoku --saturate 0.4
-
-	    #aplica tema no firefox
-	    pywalfox update
-        
-        # 3. ATUALIZAÇÃO DO SISTEMA (Novo: Força o GNOME a reler as cores)
-        # Sem isso, as cores só mudam se você fizer logout
-        touch "$HOME/.config/gtk-4.0/gtk.css"
-        touch "$HOME/.config/gtk-3.0/gtk.css"
-    fi
+else
+    # Caso cancele o menu ou ocorra erro
+    echo "Nenhuma imagem selecionada."
 fi
