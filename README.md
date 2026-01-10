@@ -146,6 +146,7 @@ Customizes the lockscreen background image or wallpaper.
         sudo dnf install linuxtoys 
     ```
  
+ - Oh my shell
  ### Scripts
 
 <details>
