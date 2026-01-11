@@ -5,10 +5,10 @@
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://github.com/Mateusrb6/Dotfiles-Gnome-rice/blob/main/assets/Screenshot2.png" alt="forge1" width="500">
+      <img src="https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/Screenshot2.png" alt="forge1" width="500">
     </td>
     <td align="center">
-      <img src="https://github.com/Mateusrb6/Dotfiles-Gnome-rice/blob/main/assets/Screenshot1.png" alt="forge2" width="500">
+      <img src="https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/Screenshot1.png" alt="forge2" width="500">
     </td>
   </tr>
 </table>
@@ -86,21 +86,29 @@ Customizes the lockscreen background image or wallpaper.
 
 - 🎧 **Vencord**  
   **What:** [Vencord](https://github.com/Vendicated/Vencord) is a client-side Discord modification that adds plugins, themes and extra UI tweaks for the Discord desktop/web clients.  
-  **Install on Fedora:** Open your terminal and run the following command. Then follow the instructions in your terminal.
+  **Install on Fedora:** 
+  - Open your terminal and run the following command. Then follow the instructions in your terminal.
   ```
          sh -c "$(curl -sS https://vencord.dev/install.sh)"
   ```
   > ⚠️ Modifying clients can break the official app and may violate terms of service; use at your own risk.
+  
+  **Usage:**
+    - After installing Vencord, you can access configurations of discord to select themes and plugins from Vencord.
 
+          ![Material Discord theme](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/material-discord-theme.png)
 - 🎶 **Spicetify**  
   **What:** [Spicetify](https://github.com/spicetify/cli) is a CLI tool to customize and theme the Spotify desktop client (also supports Flatpak installs with extra steps).  
   **Install on Fedora:**
   - Use curl to install.
 
-   ```
+  ```
           curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
   ```
   - After installing Spicetify and Marketplace, you can customize Spotify using themes and extensions from the Marketplace tab in Spotify's sidebar.
+  **Usage:**
+  - Install Blossom theme using spicetify marketplace. 
+  ![preview](https://github.com/spicetify/spicetify-themes/blob/master/Blossom/images/home.png?raw=true)
 
 - 🍜 **Wofi**  
   **What:** [Wofi](https://hg.sr.ht/~sircmpwn/wofi) is a lightweight application launcher for Wayland (wlroots compositors), similar to `rofi`/`dmenu`. Use it to run commands, launch desktop apps (`drun`), or display custom menus.
@@ -129,13 +137,13 @@ Customizes the lockscreen background image or wallpaper.
     1. Open .zshrc in a text editor like nano.
     2. Add the following block at the end of the file:
     ```
-    if [[ -o interactive && -z "$FASTFETCH_SHOWN" && -z "$SSH_CONNECTION" ]]; then
-    export FASTFETCH_SHOWN=1
-    fastfetch
-    fi
+            if [[ -o interactive && -z "$FASTFETCH_SHOWN" && -z "$SSH_CONNECTION" ]]; then
+            export FASTFETCH_SHOWN=1
+            fastfetch
+            fi
     ```
     3. Save the file and open a new terminal.
-- �🛠️ **LinuxToys**  
++ 🛠️ **LinuxToys** 
   **What:** [LinuxToys](https://github.com/psygreg/linuxtoys) is a collection of user-friendly tools designed for Linux systems. It aims to make powerful Linux functionality accessible to all users through an intuitive interface.  
   **Install on Fedora:** 
   
