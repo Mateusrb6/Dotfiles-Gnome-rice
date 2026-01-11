@@ -96,7 +96,7 @@ Customizes the lockscreen background image or wallpaper.
   **Usage:**
     - After installing Vencord, you can access configurations of discord to select themes and plugins from Vencord.
 
-          ![Material Discord theme](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/material-discord-theme.png)
+    ![Material Discord theme](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/material-discord-theme.png)
 - 🎶 **Spicetify**  
   **What:** [Spicetify](https://github.com/spicetify/cli) is a CLI tool to customize and theme the Spotify desktop client (also supports Flatpak installs with extra steps).  
   **Install on Fedora:**
