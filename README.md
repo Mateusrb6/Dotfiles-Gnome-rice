@@ -108,7 +108,8 @@ Customizes the lockscreen background image or wallpaper.
   - After installing Spicetify and Marketplace, you can customize Spotify using themes and extensions from the Marketplace tab in Spotify's sidebar.
   **Usage:**
   - Install Blossom theme using spicetify marketplace. 
-  ![preview](https://github.com/spicetify/spicetify-themes/blob/master/Blossom/images/home.png?raw=true)
+
+  ![Blossom](https://github.com/spicetify/spicetify-themes/blob/master/Blossom/images/home.png?raw=true)
 
 - 🍜 **Wofi**  
   **What:** [Wofi](https://hg.sr.ht/~sircmpwn/wofi) is a lightweight application launcher for Wayland (wlroots compositors), similar to `rofi`/`dmenu`. Use it to run commands, launch desktop apps (`drun`), or display custom menus.
@@ -117,9 +118,12 @@ Customizes the lockscreen background image or wallpaper.
   ```
           sudo dnf install wofi
   ```
-  **Usage:**   Paste the .config/wofi into ~/.config/wofi. The script wofi-wallpaper-selector.sh calls wofi to show the thumbnail of available wallpapers — don’t forget to set the right path to your wallpaper directory.
+  **Usage:**   
+  - Paste the .config/wofi into ~/.config/wofi. The script wofi-wallpaper-selector.sh calls wofi to show the thumbnail of available wallpapers — don’t forget to set the right path to your wallpaper directory.
 
   > ⚠️ Wofi requires a Wayland compositor (e.g., Sway); it won't run on a pure X11 session without a Wayland compatibility layer.
+
+  ![Wofi](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/wofi.png)
 
 - 🎨 **pywal16**  
   **What:** A small utility (fork/variant of `pywal`) that generates 16-color palettes from an image and applies them to your terminal, GTK themes and other supported apps to create a cohesive colour scheme. Useful for matching your desktop and apps to your wallpaper.
@@ -127,6 +131,8 @@ Customizes the lockscreen background image or wallpaper.
   - Using pip: `pip install pywal16`  
 
   **Usage:** The script wofi-wallpaper-selector use pywal16 to generate color-palletes based on the current wallpaper.
+
+  <h3 align="center"><img src="https://i.imgur.com/5WgMACe.gif" width="200px"></h3>
 
 - ⭐ **fastfetch**  
   **What:** [fastfetch](https://github.com/fastfetch/fastfetch) is a fast, lightweight system information tool (similar to `neofetch`) that prints concise system details and an optional ASCII logo to the terminal. It's optimized for speed and low resource usage.
@@ -143,6 +149,8 @@ Customizes the lockscreen background image or wallpaper.
             fi
     ```
     3. Save the file and open a new terminal.
+
+    ![Fastfetch](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/fastfetch.png)
 + 🛠️ **LinuxToys** 
   **What:** [LinuxToys](https://github.com/psygreg/linuxtoys) is a collection of user-friendly tools designed for Linux systems. It aims to make powerful Linux functionality accessible to all users through an intuitive interface.  
   **Install on Fedora:** 
@@ -156,7 +164,8 @@ Customizes the lockscreen background image or wallpaper.
         sudo dnf copr enable psygreg/linuxtoys
         sudo dnf install linuxtoys 
     ```
- 
+    ![LinuxToys](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/linux-toys.png)
+
  - 🐚 **Oh My Zsh**  
   **What:** [Oh My Zsh](https://ohmyz.sh/) is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with hundreds of helpful functions, helpers, plugins, and themes.  
   **Install on Fedora:**
@@ -168,6 +177,9 @@ Customizes the lockscreen background image or wallpaper.
       1. Enabling plugins: Uncomment or add plugins to the `plugins=()` line in `~/.zshrc`
       2. Changing themes: Set `ZSH_THEME="refined"` in `~/.zshrc` 
       3. Plugins: `git`, `zsh-syntax-highlighting`, `zsh-autosuggestions`
+
+    ![Oh My Zsh!](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/ohmyzsh-logo-ansi.png)
+
  ### Scripts
 
 - 🖌️ **wofi-wallpaper-selector.sh**  
@@ -191,6 +203,8 @@ Customizes the lockscreen background image or wallpaper.
       3. Replace `/path/to/` with the actual script path.
       4. Launch with: `gtk-launch wofi-wallpaper-selector.desktop` or bind it to `Alt+W` in keyboard shortcuts.
     - You can also launch wofi-wallpaper-selector using wofi, just need to press Super+Space (shortcut of wofi), then search for wallpaper selector.
+
+    ![Wallpaper selector](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/wofi-wallpaper-selector.png)
 
 
 
