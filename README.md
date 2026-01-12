@@ -134,6 +134,20 @@ Customizes the lockscreen background image or wallpaper.
 
   <h3 align="center"><img src="https://i.imgur.com/5WgMACe.gif" width="200px"></h3>
 
+ - 🐚 **Oh My Zsh**  
+  **What:** [Oh My Zsh](https://ohmyz.sh/) is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with hundreds of helpful functions, helpers, plugins, and themes.  
+  **Install on Fedora:**
+    - Using curl:
+     ```
+            curl -fsSL https://linux.toys/install.sh | bash
+     ``` 
+    **Usage:** After installation, your `.zshrc` file will be automatically configured. You can customize it by:
+      1. Enabling plugins: Uncomment or add plugins to the `plugins=()` line in `~/.zshrc`
+      2. Changing themes: Set `ZSH_THEME="refined"` in `~/.zshrc` 
+      3. Plugins: `git`, `zsh-syntax-highlighting`, `zsh-autosuggestions`
+
+    ![Oh My Zsh!](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/ohmyzsh-logo-ansi.png)
+
 - ⭐ **fastfetch**  
   **What:** [fastfetch](https://github.com/fastfetch/fastfetch) is a fast, lightweight system information tool (similar to `neofetch`) that prints concise system details and an optional ASCII logo to the terminal. It's optimized for speed and low resource usage.
   **Install on Fedora:**
@@ -152,6 +166,7 @@ Customizes the lockscreen background image or wallpaper.
 
     ![Fastfetch](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/fastfetch.png)
 + 🛠️ **LinuxToys** 
+
   **What:** [LinuxToys](https://github.com/psygreg/linuxtoys) is a collection of user-friendly tools designed for Linux systems. It aims to make powerful Linux functionality accessible to all users through an intuitive interface.  
   **Install on Fedora:** 
   
@@ -166,19 +181,6 @@ Customizes the lockscreen background image or wallpaper.
     ```
     ![LinuxToys](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/linux-toys.png)
 
- - 🐚 **Oh My Zsh**  
-  **What:** [Oh My Zsh](https://ohmyz.sh/) is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with hundreds of helpful functions, helpers, plugins, and themes.  
-  **Install on Fedora:**
-    - Using curl:
-     ```
-            curl -fsSL https://linux.toys/install.sh | bash
-     ``` 
-    **Usage:** After installation, your `.zshrc` file will be automatically configured. You can customize it by:
-      1. Enabling plugins: Uncomment or add plugins to the `plugins=()` line in `~/.zshrc`
-      2. Changing themes: Set `ZSH_THEME="refined"` in `~/.zshrc` 
-      3. Plugins: `git`, `zsh-syntax-highlighting`, `zsh-autosuggestions`
-
-    ![Oh My Zsh!](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/ohmyzsh-logo-ansi.png)
 
  ### Scripts
 

@@ -113,10 +113,8 @@ if [[ -n "$final_path" && -f "$final_path" ]]; then
     wal -i "$final_path" -n -q -t --backend haishoku --saturate 0.4
 
     # 3. Atualiza Firefox (Pywalfox)
-    if command -v pywalfox &> /dev/null; then
-        pywalfox update
-    fi
-
+    pywalfox update
+    
     # 4. Força atualização visual do sistema (Libadwaita/GTK4)
     touch "$HOME/.config/gtk-4.0/gtk.css"
     touch "$HOME/.config/gtk-3.0/gtk.css"
