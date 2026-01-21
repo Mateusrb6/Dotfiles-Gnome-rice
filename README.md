@@ -1,8 +1,5 @@
 # Fedora Gnome Rice
 
-<details>
-<summary>📸 Show Screenshots</summary>
-<table align="center">
   <tr>
     <td align="center">
       <img src="https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/Screenshot2.png" alt="forge1" width="500">
@@ -11,9 +8,6 @@
       <img src="https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/Screenshot1.png" alt="forge2" width="500">
     </td>
   </tr>
-</table>
-
-</details>
 
 ### GNOME Extensions
 
