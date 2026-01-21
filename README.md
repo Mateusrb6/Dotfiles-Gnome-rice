@@ -26,8 +26,8 @@ Adds blur effects to the GNOME Shell interface, including the top panel and othe
 <summary> Just Perfection </summary>
 Customizes GNOME Shell appearance by hiding or showing various UI elements like the activities button, clock, and more.
 
-[Just Perfection1](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/just-perfection1.png)
-[Just Perfection2](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/just-perfection2.png)
+![Just Perfection1](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/just-perfection1.png)
+![Just Perfection2](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/just-perfection2.png)
 
 </details>
 
@@ -35,7 +35,7 @@ Customizes GNOME Shell appearance by hiding or showing various UI elements like 
 <summary> Gnome 4x UI Improvements </summary>
 Enhances GNOME 40+ UI with various visual and functional improvements to the shell experience.
 
-[Gnome 4x UI Improvements](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/Gnome-4x-ui-improvements.png)
+![Gnome 4x UI Improvements](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/Gnome-4x-ui-improvements.png)
 
 </details>
 
