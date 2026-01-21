@@ -130,7 +130,7 @@ Customizes the lockscreen background image or wallpaper.
 
   > ⚠️ Wofi requires a Wayland compositor (e.g., Sway); it won't run on a pure X11 session without a Wayland compatibility layer.
 
-  ![Wofi](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/wofi.png)
+  ![Wofi](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/wofi1.png)
 
 - 🎨 **pywal16**  
   **What:** A small utility (fork/variant of `pywal`) that generates 16-color palettes from an image and applies them to your terminal, GTK themes and other supported apps to create a cohesive colour scheme. Useful for matching your desktop and apps to your wallpaper.
@@ -213,7 +213,7 @@ Customizes the lockscreen background image or wallpaper.
       4. Launch with: `gtk-launch wofi-wallpaper-selector.desktop` command and bind it to `Alt+W` in keyboard shortcuts.
     - You can also launch wofi-wallpaper-selector using wofi, just need to press Super+Space (shortcut of wofi), then search for wallpaper selector.
 
-    ![Wallpaper selector](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/wofi-wallpaper-selector.png)
+    ![Wallpaper selector](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/wofi-wallpaper-selector1.png)
 
 
 
