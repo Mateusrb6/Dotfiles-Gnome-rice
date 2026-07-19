@@ -1,13 +1,15 @@
 # Fedora Gnome Rice
 
+<table>
   <tr>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/Screenshot2.png" alt="forge1" width="500">
+      <img src="https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/Screenshot2.png" alt="Desktop screenshot with tiled windows" width="500">
     </td>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/Screenshot1.png" alt="forge2" width="500">
+      <img src="https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/Screenshot1.png" alt="Desktop screenshot with application launcher" width="500">
     </td>
   </tr>
+</table>
 
 ### GNOME Extensions
 
@@ -98,6 +100,18 @@ Customizes the lockscreen background image or wallpaper.
     - After installing Vencord, you can access configurations of discord to select themes and plugins from Vencord.
 
     ![Material Discord theme](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/material-discord-theme.png)
+
+- 💬 **Vesktop**  
+  **What:** [Vesktop](https://github.com/Vencord/Vesktop) is a standalone Discord desktop app that comes with Vencord out of the box, allowing you to customize your Discord experience with many powerful plugins and themes — no client patching required.  
+  **Install on Fedora:**
+  - Install via Flatpak:
+  ```
+         flatpak install flathub dev.vencord.Vesktop
+  ```
+  
+  **Usage:**
+    - Vesktop works as a full replacement for the official Discord client. All Vencord plugins and themes are available directly from Settings > Vencord.
+
 - 🎶 **Spicetify**  
   **What:** [Spicetify](https://github.com/spicetify/cli) is a CLI tool to customize and theme the Spotify desktop client (also supports Flatpak installs with extra steps).  
   **Install on Fedora:**
@@ -133,14 +147,14 @@ Customizes the lockscreen background image or wallpaper.
 
   **Usage:** The script wofi-wallpaper-selector use pywal16 to generate color-palletes based on the current wallpaper.
 
-  <h3 align="center"><img src="https://i.imgur.com/5WgMACe.gif" width="200px"></h3>
+  <h3 align="center"><img src="https://i.imgur.com/5WgMACe.gif" alt="Color palette animation" width="200px"></h3>
 
  - 🐚 **Oh My Zsh**  
   **What:** [Oh My Zsh](https://ohmyz.sh/) is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with hundreds of helpful functions, helpers, plugins, and themes.  
   **Install on Fedora:**
     - Using curl:
      ```
-            curl -fsSL https://linux.toys/install.sh | bash
+             sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
      ``` 
     **Usage:** After installation, your `.zshrc` file will be automatically configured. You can customize it by:
       1. Enabling plugins: Uncomment or add plugins to the `plugins=()` line in `~/.zshrc`
@@ -220,7 +234,3 @@ Customizes the lockscreen background image or wallpaper.
 | Wallpaper Picker | `gtk-launch wallpaper-selector.desktop` | `Alt+W`   |
 | Terminal         | `kitty`                                         | `Super+T` |
 | wofi             | `wofi`                                          | `Super+Space`|
-
-
-
-🚧🚧🚧 Under Construction 🚧🚧🚧

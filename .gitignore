@@ -1,0 +1,18 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# Cache
+.cache/
+__pycache__/
+
+# Editor
+.vscode/
+.idea/
+*.code-workspace
+
+# Gemini
+.gemini/
