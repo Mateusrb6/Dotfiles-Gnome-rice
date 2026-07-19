@@ -1,5 +1,9 @@
 # Fedora Gnome Rice
 
+![Fedora 44](https://img.shields.io/badge/Fedora-44-blue?logo=fedora&logoColor=white)
+![GNOME 48](https://img.shields.io/badge/GNOME-48-orange?logo=gnome&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 <table>
   <tr>
     <td align="center">
@@ -85,21 +89,26 @@ Displays quick access to system places like home folder, desktop, and mounted dr
 Customizes the lockscreen background image or wallpaper.
 </details>
 
+### Quick Install
+
+```bash
+git clone https://github.com/Mateusrb6/Dotfiles-Gnome-rice.git
+cd Dotfiles-Gnome-rice
+./install.sh
+```
+
+### Themes
+
+| Component     | Theme                  |
+| ------------- | ---------------------- |
+| GTK Theme     | Adwaita (custom colors via `gtk.css`) |
+| GNOME Shell   | Default + Open Bar customization |
+| Icon Theme    | Default Adwaita        |
+| Terminal      | Kitty + pywal16 colors |
+| Font          | JetBrainsMono Nerd Font |
+| Color Scheme  | Dynamic (pywal16 from wallpaper) |
+
 ### Applications
-
-- 🎧 **Vencord**  
-  **What:** [Vencord](https://github.com/Vendicated/Vencord) is a client-side Discord modification that adds plugins, themes and extra UI tweaks for the Discord desktop/web clients.  
-  **Install on Fedora:** 
-  - Open your terminal and run the following command. Then follow the instructions in your terminal.
-  ```
-         sh -c "$(curl -sS https://vencord.dev/install.sh)"
-  ```
-  > ⚠️ Modifying clients can break the official app and may violate terms of service; use at your own risk.
-  
-  **Usage:**
-    - After installing Vencord, you can access configurations of discord to select themes and plugins from Vencord.
-
-    ![Material Discord theme](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/material-discord-theme.png)
 
 - 💬 **Vesktop**  
   **What:** [Vesktop](https://github.com/Vencord/Vesktop) is a standalone Discord desktop app that comes with Vencord out of the box, allowing you to customize your Discord experience with many powerful plugins and themes — no client patching required.  
@@ -111,6 +120,14 @@ Customizes the lockscreen background image or wallpaper.
   
   **Usage:**
     - Vesktop works as a full replacement for the official Discord client. All Vencord plugins and themes are available directly from Settings > Vencord.
+
+- 🎧 **Vencord**  
+  **What:** [Vencord](https://github.com/Vendicated/Vencord) is the client-side Discord modification bundled with Vesktop. It adds plugins, themes and extra UI tweaks to customize the Discord experience.  
+  
+  **Usage:**
+    - Access Discord Settings > Vencord to browse and enable plugins and themes.
+
+    ![Material Discord theme](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/material-discord-theme.png)
 
 - 🎶 **Spicetify**  
   **What:** [Spicetify](https://github.com/spicetify/cli) is a CLI tool to customize and theme the Spotify desktop client (also supports Flatpak installs with extra steps).  
@@ -234,3 +251,15 @@ Customizes the lockscreen background image or wallpaper.
 | Wallpaper Picker | `gtk-launch wallpaper-selector.desktop` | `Alt+W`   |
 | Terminal         | `kitty`                                         | `Super+T` |
 | wofi             | `wofi`                                          | `Super+Space`|
+
+### GNOME Settings (dconf)
+
+To export your current GNOME settings:
+```bash
+./export-gnome-settings.sh
+```
+
+To restore on a fresh install:
+```bash
+dconf load /org/gnome/ < gnome-settings.dconf
+```

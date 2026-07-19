@@ -17,6 +17,24 @@ mkdir -p "$CACHE_DIR"
 shopt -s nullglob
 
 ############################
+# VERIFICAÇÃO DE DEPENDÊNCIAS
+############################
+
+MISSING=()
+for cmd in wofi gsettings wal; do
+    command -v "$cmd" &>/dev/null || MISSING+=("$cmd")
+done
+# ImageMagick: aceita magick (v7) ou convert (v6)
+if ! command -v magick &>/dev/null && ! command -v convert &>/dev/null; then
+    MISSING+=("ImageMagick")
+fi
+
+if [[ ${#MISSING[@]} -gt 0 ]]; then
+    echo "Erro: dependências não encontradas: ${MISSING[*]}" >&2
+    exit 1
+fi
+
+############################
 # FUNÇÕES
 ############################
 
@@ -89,7 +107,7 @@ if [[ -n "$selected_raw" ]]; then
 
     # 4. Buscamos o arquivo original na pasta de wallpapers correspondente a esse nome
     # Isso garante que pegamos o arquivo certo seja ele .jpg, .jpeg ou .png
-    final_path=$(find "$WALLPAPER_DIR" -type f -name "$filename_no_ext.*" | head -n 1)
+    final_path=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f \( -name "$filename_no_ext.jpg" -o -name "$filename_no_ext.jpeg" -o -name "$filename_no_ext.png" \) | head -n 1)
 fi
 
 ############################
