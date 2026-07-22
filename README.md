@@ -101,8 +101,8 @@ cd Dotfiles-Gnome-rice
 
 | Component     | Theme                  |
 | ------------- | ---------------------- |
-| GTK Theme     | Adwaita (custom colors via `gtk.css`) |
-| GNOME Shell   | Default + Open Bar customization |
+| GTK Theme     | Adwaita (custom colors via `gtk.css`, symlinked to pywal16 cache) |
+| GNOME Shell   | Default + Open Bar customization + pywal16-generated shell theme |
 | Icon Theme    | Default Adwaita        |
 | Terminal      | Kitty + pywal16 colors |
 | Font          | JetBrainsMono Nerd Font |
@@ -239,6 +239,14 @@ cd Dotfiles-Gnome-rice
     - You can also launch wofi-wallpaper-selector using wofi, just need to press Super+Space (shortcut of wofi), then search for wallpaper selector.
 
     ![Wallpaper selector](https://raw.githubusercontent.com/Mateusrb6/Dotfiles-Gnome-rice/main/assets/wofi-wallpaper-selector1.png)
+
+- 🌈 **Pywal-Gnome-Shell-Theme**  
+  **What:** [Pywal-Gnome-Shell-Theme](https://github.com/Mateusrb6/Dotfiles-Gnome-rice/tree/main/Pywal-Gnome-Shell-Theme) extends pywal16 theming to GNOME Shell itself (top panel, Quick Settings, calendar, etc.), not just GTK apps. It recompiles the official GNOME Shell SASS stylesheet with the current pywal16 colors and maps the pywal16 accent color to the closest native GNOME accent (`org.gnome.desktop.interface accent-color`), using the same OKLCH matching algorithm as libadwaita.  
+  **Requirements:** `sassc`, `python3`, `dconf`, and the **User Themes** GNOME extension enabled.
+  **Usage:**
+    - `wofi-wallpaper-selector.sh` calls `generate-shell-theme.sh` automatically after `wal` runs — no manual steps needed.
+    - It compiles `~/.local/share/themes/pywal/gnome-shell/gnome-shell.css` and reloads it live (no logout required) by toggling the User Themes extension's setting via `dconf`.
+    - Run it standalone anytime with `./Pywal-Gnome-Shell-Theme/generate-shell-theme.sh` to resync the shell theme without changing wallpaper.
 
 
 

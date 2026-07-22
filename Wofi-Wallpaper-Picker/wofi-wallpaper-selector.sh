@@ -6,6 +6,7 @@
 
 WALLPAPER_DIR="$HOME/Pictures/wallpapers"
 CACHE_DIR="$HOME/.cache/wallpaper-selector"
+SHELL_THEME_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/Pywal-Gnome-Shell-Theme/generate-shell-theme.sh"
 
 THUMBNAIL_WIDTH="250"
 THUMBNAIL_HEIGHT="141"
@@ -136,6 +137,11 @@ if [[ -n "$final_path" && -f "$final_path" ]]; then
     # 4. Força atualização visual do sistema (Libadwaita/GTK4)
     touch "$HOME/.config/gtk-4.0/gtk.css"
     touch "$HOME/.config/gtk-3.0/gtk.css"
+
+    # 5. Atualiza o tema do GNOME Shell (Quick Settings, painel, etc.)
+    if [[ -x "$SHELL_THEME_SCRIPT" ]]; then
+        "$SHELL_THEME_SCRIPT" || echo "Aviso: falha ao atualizar o tema do GNOME Shell." >&2
+    fi
 
 else
     # Caso cancele o menu ou ocorra erro
